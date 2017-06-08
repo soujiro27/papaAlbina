@@ -1,0 +1,100 @@
+html {
+  --mouse-x: 0.5;
+  --mouse-y: 0.5;
+}
+
+.body {
+   display:block;
+   width: 7em;
+   height: 10em;
+   font-size: 5vh;
+   background-color: #e29c16;
+   border-radius: 50%  50%  50%  50%  / 60%   60%   40%  40%;
+   text-align: center;
+   box-shadow: inset 10px -10px rgba(0,0,0,0.1);
+   transform-origin: center bottom;
+   animation: balance alternate infinite 2s ease-in-out;
+   margin:auto;
+}
+
+
+body{
+  background-color: #211705;
+}
+
+.eye {
+  display: inline-block;
+  width: 1.3em;
+  height: 1.5em;
+  margin-left: -0.2em;
+  margin-right: -0.2em;
+  background-color: #fdffd6;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0.03em 0.14em rgba(0,0,0,0.1);
+  animation: blink forwards infinite 5s ease-in-out;
+  z-index:1;
+}
+
+.pupil {
+  position: absolute;
+  content: ' ';
+  width: .5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: black;
+  border: 0.1em solid #00aeef;
+  box-shadow: 0 0 0 0.04em black;
+  box-sizing: border-box;
+  will-change: transform;
+  transition: transform 200ms 300ms ease-in-out;
+  transform: translateX(calc(var(--mouse-x) * 0.55em + 0.1em)) translateY(calc(var(--mouse-y) * 0.7em + 0.1em));
+}
+
+html:hover .pupil {
+  transition: none;
+}
+
+.mouth {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.hand {
+  transform: rotate(-70deg);
+  position: absolute;
+  top: 3em;
+}
+
+.hand + .hand {
+  transform: rotate(90deg);
+  right: 0;
+}
+
+.hand::before {
+  content: 'Y';
+  display: block;
+  font-family: fantasy;
+  font-size: 1.5em;
+  line-height: 5px;
+  color:white;
+}
+
+@keyframes blink { 
+  0%, 2%, 10%, 12%, 100% { transform: scaleX(1) scaleY(1); } 
+  1%, 11% { transform: scaleX(1.3) scaleY(0.1); } 
+}
+
+@keyframes balance { 
+  from { transform: rotate(-2deg); } 
+  to { transform: rotate(2deg); } 
+}
+
+h1{
+  text-align: center;
+  color:#fff;
+  font-family: 'Pacifico', cursive;
+}

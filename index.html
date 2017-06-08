@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dana Papa</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="papa.css">
+</head>
+<body>
+<h1>DaNae JimeNez</h1>
+	<div class="body">
+  <div class="eye">
+    <div class="pupil"></div>
+  </div>
+  <div class="eye">
+    <div class="pupil"></div>
+  </div>
+
+  <div class="mouth"></div>
+  
+  <div class="hand"></div>
+  <div class="hand"></div>
+</div>
+<script type="text/javascript">
+  const root = document.documentElement;
+
+document.addEventListener('mousemove', e => {
+  let x = e.clientX / window.innerWidth;
+  let y = e.clientY / window.innerHeight;
+
+  root.style.setProperty('--mouse-x', x);
+  root.style.setProperty('--mouse-y', y);
+});
+
+document.addEventListener('mouseleave', e => {
+  root.style.removeProperty('--mouse-x');
+  root.style.removeProperty('--mouse-y');
+});
+</script>
+</body>
+</html>
